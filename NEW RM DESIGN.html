@@ -1,0 +1,580 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>NEW RM DESIGN</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Hanken+Grotesk:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: dark editorial studio site, full-bleed scene hero, hash-routed pages, orange accent on blue-black */
+:root{
+  --bg:#0b1016; --surface:#121a23; --surface-2:#18222d; --line:rgba(233,230,223,.12);
+  --fg:#e9e6df; --muted:#8e99a6; --accent:#e4772e; --accent-ink:#1a0e05;
+  --display:'Barlow Condensed','Arial Narrow',Impact,sans-serif;
+  --body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:700;text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance;letter-spacing:.005em}
+p{margin:0}
+.wrap{max-width:1180px;margin-inline:auto}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);border:0;padding:14px 26px;font:600 13px var(--body);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.logo i{width:12px;height:12px;background:var(--accent);display:inline-block;transform:rotate(45deg)}
+nav.main{display:flex;gap:30px}
+nav.main a{font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:6px 0;border-bottom:1px solid transparent}
+nav.main a:hover,nav.main a[aria-current="page"]{color:var(--fg);border-color:var(--accent)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--fg);padding:9px 14px;font:500 12px var(--body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+
+/* hero */
+.hero{position:relative;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));min-height:640px;display:flex;align-items:flex-end;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .art{position:absolute;inset:0}
+.hero .art svg{width:100%;height:100%;display:block}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,16,22,.15) 0%,rgba(11,16,22,.2) 45%,var(--bg) 100%)}
+.hero .in{position:relative;z-index:2;width:100%;padding:0 max(16px,env(safe-area-inset-left,0px)) 56px}
+.hero h1{font-size:clamp(64px,13vw,168px);max-width:900px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{max-width:520px;margin-top:22px;color:#c9ccd0;font-size:17px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero .loc{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:32px;z-index:2;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#cfd3d7;text-align:right}
+
+section.block{padding-block:88px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-bottom:1px solid var(--line)}
+.three>div{padding:34px 28px 38px 0;border-right:1px solid var(--line);margin-right:28px}
+.three>div:last-child{border:0;margin:0}
+.three h3{font-size:26px;margin-bottom:10px}
+.three p{color:var(--muted);font-size:15px}
+.three a{display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:3px}
+
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.sec-head h2{font-size:clamp(40px,6vw,72px)}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.cards.six{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{display:block;text-decoration:none;background:var(--surface);position:relative}
+.card .ph{aspect-ratio:4/5;overflow:hidden;position:relative}
+.cards.six .card .ph{aspect-ratio:4/4.6}
+.ph svg{width:100%;height:100%;display:block;transition:transform .6s ease}
+.card:hover .ph svg{transform:scale(1.05)}
+.card .meta{padding:16px 18px 20px;border-top:2px solid transparent}
+.card:hover .meta{border-color:var(--accent)}
+.card h3{font-size:22px;margin-bottom:4px}
+.card .meta span{font-size:13px;color:var(--muted)}
+.tag{position:absolute;left:12px;top:12px;background:rgba(11,16,22,.78);padding:4px 9px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#d8d8d4}
+.note{margin-top:18px;font-size:13px;color:var(--muted)}
+
+.feature{margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));position:relative;overflow:hidden;border-block:1px solid var(--line)}
+.feature .art{position:absolute;inset:0}
+.feature .art svg{width:100%;height:100%;display:block}
+.feature::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,16,22,.92) 0%,rgba(11,16,22,.55) 55%,rgba(11,16,22,.2) 100%)}
+.feature .in{position:relative;z-index:2;padding:110px max(16px,env(safe-area-inset-left,0px));max-width:1180px;margin-inline:auto}
+.feature h2{font-size:clamp(44px,7vw,96px);max-width:640px}
+.feature p{max-width:460px;color:#c6cacf;margin:22px 0 28px}
+
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:s}
+.steps>div{padding:26px 24px 8px 0;border-top:1px solid var(--line);margin-right:24px}
+.steps>div:last-child{margin-right:0}
+.steps b{font-family:var(--display);font-size:15px;color:var(--accent);letter-spacing:.14em;display:block;margin-bottom:10px}
+.steps h3{font-size:26px;margin-bottom:8px}
+.steps p{color:var(--muted);font-size:15px}
+
+.cta-band{background:var(--surface);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:64px max(16px,env(safe-area-inset-left,0px))}
+.cta-band .wrap{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.cta-band h2{font-size:clamp(34px,5vw,60px);max-width:640px}
+
+/* inner pages */
+.page-head{padding:84px 0 44px;border-bottom:1px solid var(--line)}
+.page-head h1{font-size:clamp(52px,9vw,120px);margin-top:14px}
+.page-head p{max-width:600px;color:var(--muted);margin-top:20px;font-size:17px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;padding-block:64px;align-items:center}
+.split .ph{aspect-ratio:5/6;overflow:hidden}
+.split .ph svg{width:100%;height:100%;display:block}
+.split p+p{margin-top:16px}
+.split p{color:#c3c7cc}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+.facts dt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:4px 0 0;font-size:15px;overflow-wrap:anywhere}
+.svc{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,1.2fr);gap:28px;padding:32px 0;border-bottom:1px solid var(--line);align-items:start}
+.svc .n{font-family:var(--display);color:var(--accent);font-size:20px;font-weight:600}
+.svc h3{font-size:34px}
+.svc p{color:var(--muted)}
+.svc ul{margin:12px 0 0;padding-left:18px;color:#c3c7cc;font-size:14px}
+
+.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;padding-block:64px}
+.contact h3{font-size:30px;margin-bottom:14px}
+.contact address{font-style:normal;color:#c3c7cc;margin-bottom:26px}
+.copyrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.copyrow a{overflow-wrap:anywhere}
+.mini{background:none;border:1px solid var(--line);color:var(--muted);padding:5px 10px;font:500 11px var(--body);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.mini:hover{color:var(--fg);border-color:var(--accent)}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+input,select,textarea{width:100%;background:var(--surface);border:1px solid var(--line);color:var(--fg);padding:13px 14px;font:400 15px var(--body);border-radius:0;min-width:0}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:140px;resize:vertical}
+.field{margin-bottom:16px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:6px 0 20px}
+.check input{width:auto;margin-top:4px}
+.check a{color:var(--fg)}
+.result{margin-top:22px;background:var(--surface);border-left:2px solid var(--accent);padding:18px 20px}
+.result pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.55 var(--body);color:#c3c7cc;margin:12px 0}
+
+.legal{max-width:760px;padding-block:56px 80px}
+.legal h2{font-size:30px;margin:38px 0 10px}
+.legal p,.legal li{color:#c3c7cc;margin-bottom:12px}
+.legal ul{padding-left:20px}
+.legal .upd{color:var(--muted);font-size:13px}
+
+footer{margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));background:var(--surface);border-top:1px solid var(--line);padding:60px max(16px,env(safe-area-inset-left,0px)) calc(28px + env(safe-area-inset-bottom,0px))}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px}
+footer h4{font:600 11px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{text-decoration:none;font-size:14px;color:#cfd2d6}
+footer a:hover{color:var(--accent)}
+footer address{font-style:normal;font-size:14px;color:#aeb5bd;overflow-wrap:anywhere}
+.fbot{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+
+.cookie{position:fixed;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;max-width:720px;margin-inline:auto;background:var(--surface-2);border:1px solid var(--line);padding:18px 20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.cookie p{flex:1 1 280px;font-size:13.5px;color:#c3c7cc}
+.cookie a{color:var(--fg)}
+.cookie .btn{padding:11px 20px}
+
+@media (max-width:900px){
+  nav.main{display:none;position:absolute;left:0;right:0;top:68px;background:var(--bg);flex-direction:column;gap:0;padding:8px max(16px,env(safe-area-inset-left,0px)) 18px;border-bottom:1px solid var(--line)}
+  nav.main.open{display:flex}
+  nav.main a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .menu-btn{display:block}
+  .three,.steps{grid-template-columns:1fr}
+  .three>div{border-right:0;border-bottom:1px solid var(--line);margin:0;padding-right:0}
+  .steps>div{margin-right:0}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cards.six{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .split,.contact{grid-template-columns:1fr;gap:34px}
+  .svc{grid-template-columns:44px minmax(0,1fr)}
+  .svc>div:last-child{grid-column:2}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .hero{min-height:560px}
+}
+@media (max-width:520px){
+  .cards,.cards.six{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  form .row{grid-template-columns:1fr}
+  section.block{padding-block:60px}
+  .hero .loc{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#home" aria-label="NEW RM DESIGN, home"><i></i>NEW RM DESIGN</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    <nav class="main" id="mainNav" aria-label="Main">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#about" data-nav="about">Studio</a>
+      <a href="#services" data-nav="services">Services</a>
+      <a href="#projects" data-nav="projects">Projects</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HOME -->
+<div data-page="home">
+  <section class="hero">
+    <div class="art" data-hero></div>
+    <div class="loc">Napoli, Italia<br>Interior design studio</div>
+    <div class="in wrap" style="max-width:none">
+      <div class="wrap" style="padding:0">
+        <div class="eyebrow" style="color:#cfd3d7;margin-bottom:16px">Interior design &amp; fit-out</div>
+        <h1>Rooms made <em>for</em> Naples</h1>
+        <p class="lead">NEW RM DESIGN SRL designs and delivers homes, shops and hospitality spaces in Naples and the Campania region, from first sketch to the last fitted light.</p>
+        <div class="cta"><a class="btn" href="#contact">Start a project</a><a class="btn ghost" href="#projects">View projects</a></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="three">
+      <div><h3>Residential</h3><p>Apartments and historic townhouses planned around light, storage and the way you actually live.</p><a href="#services">Learn more</a></div>
+      <div><h3>Commercial</h3><p>Shops, studios, restaurants and bars with layouts that guide guests and make service easier.</p><a href="#services">Learn more</a></div>
+      <div><h3>Renovation</h3><p>Coordination of trades, permits and schedules so the build matches the drawings.</p><a href="#services">Learn more</a></div>
+    </div>
+
+    <section class="block">
+      <div class="sec-head"><div><div class="eyebrow">Selected concepts</div><h2>Popular spaces</h2></div><a class="btn ghost" href="#projects">All projects</a></div>
+      <div class="cards" data-cards="home"></div>
+      <p class="note">Images are illustrative concept renderings. Photographs of completed projects are added on request.</p>
+    </section>
+  </div>
+
+  <section class="feature">
+    <div class="art" data-feature></div>
+    <div class="in">
+      <div class="eyebrow" style="margin-bottom:16px">Our approach</div>
+      <h2>Design that belongs to its street</h2>
+      <p>Vaulted ceilings, deep stone sills, tall shutters. Naples buildings have strong bones. We keep what is good and plan the rest with care.</p>
+      <a class="btn" href="#about">About the studio</a>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="block">
+      <div class="sec-head"><div><div class="eyebrow">How we work</div><h2>From brief to keys</h2></div></div>
+      <div class="steps">
+        <div><b>STEP 1</b><h3>Brief</h3><p>We visit the space, listen, measure and agree on goals and budget.</p></div>
+        <div><b>STEP 2</b><h3>Concept</h3><p>Layout options, materials and mood, presented as plans and visuals.</p></div>
+        <div><b>STEP 3</b><h3>Project</h3><p>Technical drawings, furniture and lighting schedules, supplier quotes.</p></div>
+        <div><b>STEP 4</b><h3>Delivery</h3><p>Site coordination and installation until the space is ready to use.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="cta-band"><div class="wrap"><h2>Have a space in mind? Tell us about it.</h2><a class="btn" href="#contact">Contact the studio</a></div></div>
+</div>
+
+<!-- ABOUT -->
+<div data-page="about" hidden>
+  <div class="wrap">
+    <div class="page-head"><div class="eyebrow">The studio</div><h1>About us</h1><p>NEW RM DESIGN SRL is an interior design company based in the historic centre of Naples.</p></div>
+    <div class="split">
+      <div class="ph" data-scene="21,0,2"></div>
+      <div>
+        <h2 style="font-size:clamp(36px,5vw,56px);margin-bottom:22px">Careful planning, clear communication</h2>
+        <p>We work with private clients, small businesses and property owners who want a space that is comfortable, practical and well made. Every project starts with a conversation and a visit to the site.</p>
+        <p>Our studio sits in the Sanità district, close to the workshops, stone yards and furniture makers we like to work with. That proximity keeps decisions fast and materials honest.</p>
+        <p>We prepare complete documentation, so quotes are comparable and builders know what to deliver. We stay involved on site until the work is finished.</p>
+        <dl class="facts">
+          <div><dt>Company</dt><dd>NEW RM DESIGN SRL</dd></div>
+          <div><dt>Based in</dt><dd>Napoli, Campania, Italy</dd></div>
+          <div><dt>Disciplines</dt><dd>Interior design, space planning, fit-out coordination</dd></div>
+          <div><dt>Contact</dt><dd>admin@newrmdesign.lol</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="cta-band"><div class="wrap"><h2>Let's talk about your space</h2><a class="btn" href="#contact">Get in touch</a></div></div>
+</div>
+
+<!-- SERVICES -->
+<div data-page="services" hidden>
+  <div class="wrap">
+    <div class="page-head"><div class="eyebrow">What we do</div><h1>Services</h1><p>Take one service on its own or the whole project from concept to completion.</p></div>
+    <div>
+      <div class="svc"><span class="n">01</span><div><h3>Interior design</h3></div><div><p>Concept, mood, materials and colour for the whole interior, drawn to scale.</p><ul><li>Concept boards and 3D visuals</li><li>Material and finish selection</li></ul></div></div>
+      <div class="svc"><span class="n">02</span><div><h3>Space planning</h3></div><div><p>Layouts that improve flow, daylight, storage and use of every square metre.</p><ul><li>Measured survey and floor plans</li><li>Furniture layouts and options</li></ul></div></div>
+      <div class="svc"><span class="n">03</span><div><h3>Furniture &amp; lighting</h3></div><div><p>Sourcing and specification of furniture, lighting and textiles, including made-to-measure pieces from local workshops.</p><ul><li>Supplier shortlists and quotes</li><li>Lighting plans</li></ul></div></div>
+      <div class="svc"><span class="n">04</span><div><h3>Renovation management</h3></div><div><p>Schedules, trades and site visits handled by one point of contact.</p><ul><li>Technical drawings and bills of quantities</li><li>Progress reports and snagging</li></ul></div></div>
+      <div class="svc"><span class="n">05</span><div><h3>Commercial fit-out</h3></div><div><p>Shops, offices and hospitality spaces designed around staff routines and customer journeys.</p><ul><li>Branded interiors</li><li>Phased openings</li></ul></div></div>
+    </div>
+  </div>
+  <div class="cta-band"><div class="wrap"><h2>Describe your project</h2><a class="btn" href="#contact">Request a consultation</a></div></div>
+</div>
+
+<!-- PROJECTS -->
+<div data-page="projects" hidden>
+  <div class="wrap">
+    <div class="page-head"><div class="eyebrow">Portfolio</div><h1>Projects</h1><p>A selection of design concepts across residential and commercial briefs.</p></div>
+    <section style="padding-block:56px 20px"><div class="cards six" data-cards="all"></div>
+    <p class="note">Images are illustrative concept renderings, not photographs of finished work. Case studies with site photography are available on request.</p></section>
+  </div>
+  <div class="cta-band"><div class="wrap"><h2>Want something similar?</h2><a class="btn" href="#contact">Start a project</a></div></div>
+</div>
+
+<!-- CONTACT -->
+<div data-page="contact" hidden>
+  <div class="wrap">
+    <div class="page-head"><div class="eyebrow">Contact</div><h1>Let's talk</h1><p>Tell us what you are planning. We reply by email, usually within two working days.</p></div>
+    <div class="contact">
+      <div>
+        <h3>Studio</h3>
+        <address>NEW RM DESIGN SRL<br>Vico Tutti i Santi 3<br>80141 Napoli (NA)<br>Italy</address>
+        <h3>Email</h3>
+        <div class="copyrow"><a href="mailto:admin@newrmdesign.lol">admin@newrmdesign.lol</a><button class="mini" type="button" data-copy="admin@newrmdesign.lol">Copy</button></div>
+        <h3 style="margin-top:26px">Visits</h3>
+        <p style="color:#c3c7cc">By appointment only. Write to us to arrange a time.</p>
+      </div>
+      <div>
+        <form id="cform" novalidate>
+          <div class="row">
+            <div class="field"><label for="f-name">Name</label><input id="f-name" autocomplete="name" required></div>
+            <div class="field"><label for="f-mail">Email</label><input id="f-mail" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="field"><label for="f-type">Project type</label>
+            <select id="f-type"><option>Residential interior</option><option>Commercial / hospitality</option><option>Renovation management</option><option>Other</option></select></div>
+          <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" required></textarea></div>
+          <label class="check" for="f-ok" style="text-transform:none;letter-spacing:0"><input type="checkbox" id="f-ok"><span>I have read the <a href="#privacy">Privacy Policy</a> and agree that NEW RM DESIGN SRL may use my details to reply to this enquiry.</span></label>
+          <button class="btn" type="submit">Prepare message</button>
+          <p id="ferr" role="alert" style="color:#ef8a6a;font-size:14px;margin-top:14px" hidden></p>
+        </form>
+        <div class="result" id="fres" hidden>
+          <strong>Your message is ready.</strong>
+          <pre id="fpre"></pre>
+          <div class="copyrow"><a class="btn" id="fmail" href="#">Open in email app</a><button class="mini" type="button" id="fcopy">Copy message</button></div>
+          <p class="note">Send it to admin@newrmdesign.lol. This page does not send messages by itself.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRIVACY -->
+<div data-page="privacy" hidden><div class="wrap"><div class="legal">
+  <div class="eyebrow">Legal</div><h1 style="font-size:clamp(48px,8vw,88px);margin:12px 0 18px">Privacy Policy</h1>
+  <p class="upd">Last updated: 29 October 2026</p>
+  <h2>1. Data controller</h2>
+  <p>The controller of your personal data is NEW RM DESIGN SRL, Vico Tutti i Santi 3, 80141 Napoli (NA), Italy. Contact for privacy matters: <a href="mailto:admin@newrmdesign.lol">admin@newrmdesign.lol</a>.</p>
+  <h2>2. Data we collect</h2>
+  <ul><li>Details you provide when you contact us: name, email address, project type and the content of your message.</li><li>Technical data processed by our hosting provider in server logs (IP address, date and time, requested page, browser type) for security and operation of the site.</li></ul>
+  <h2>3. Purposes and legal bases</h2>
+  <ul><li>Replying to enquiries and preparing proposals: Art. 6(1)(b) GDPR (steps taken at your request before a contract).</li><li>Site security and administration: Art. 6(1)(f) GDPR (our legitimate interest).</li><li>Compliance with legal obligations, where applicable: Art. 6(1)(c) GDPR.</li></ul>
+  <h2>4. Retention</h2>
+  <p>Enquiries are kept for as long as needed to handle them and, if no project follows, for up to 24 months. Client records are kept for the periods required by Italian tax and accounting law. Server logs are kept for a short period set by the hosting provider.</p>
+  <h2>5. Recipients</h2>
+  <p>We do not sell personal data. Data may be handled by service providers acting on our behalf, such as web hosting and email providers, under data processing agreements. Data may also be disclosed to authorities where the law requires it.</p>
+  <h2>6. Transfers outside the EEA</h2>
+  <p>If a provider processes data outside the European Economic Area, we rely on an adequacy decision or standard contractual clauses approved by the European Commission.</p>
+  <h2>7. Your rights</h2>
+  <p>You may request access, rectification, erasure, restriction, portability, and object to processing (Articles 15 to 22 GDPR) by writing to <a href="mailto:admin@newrmdesign.lol">admin@newrmdesign.lol</a>. You may also lodge a complaint with the Italian data protection authority, the Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p>
+  <h2>8. Children</h2>
+  <p>This site is not directed at children under 16, and we do not knowingly collect their data.</p>
+  <h2>9. Changes</h2>
+  <p>We may update this policy. The date at the top shows the latest version.</p>
+</div></div></div>
+
+<!-- COOKIES -->
+<div data-page="cookies" hidden><div class="wrap"><div class="legal">
+  <div class="eyebrow">Legal</div><h1 style="font-size:clamp(48px,8vw,88px);margin:12px 0 18px">Cookie Policy</h1>
+  <p class="upd">Last updated: 29 October 2026</p>
+  <h2>What are cookies</h2>
+  <p>Cookies and similar technologies store small pieces of information in your browser. Some are strictly necessary for a site to work, others measure use or show advertising.</p>
+  <h2>What this site uses</h2>
+  <p>This site uses only technical storage. It remembers that you have seen the cookie notice. It does not use analytics, advertising or profiling cookies, and it does not load third-party tracking scripts. Fonts are loaded from Google Fonts, which may receive your IP address when the page loads.</p>
+  <h2>Managing cookies</h2>
+  <p>You can delete or block cookies in your browser settings. Blocking technical storage may mean the cookie notice appears again on your next visit.</p>
+  <h2>Changes</h2>
+  <p>If we add analytics or other non-essential cookies, we will update this policy and ask for your consent first. Questions: <a href="mailto:admin@newrmdesign.lol">admin@newrmdesign.lol</a>.</p>
+</div></div></div>
+
+<!-- TERMS -->
+<div data-page="terms" hidden><div class="wrap"><div class="legal">
+  <div class="eyebrow">Legal</div><h1 style="font-size:clamp(48px,8vw,88px);margin:12px 0 18px">Terms of Use</h1>
+  <p class="upd">Last updated: 29 October 2026</p>
+  <h2>1. Website owner</h2>
+  <p>This website is operated by NEW RM DESIGN SRL, Vico Tutti i Santi 3, 80141 Napoli (NA), Italy. Email: <a href="mailto:admin@newrmdesign.lol">admin@newrmdesign.lol</a>.</p>
+  <h2>2. Use of the site</h2>
+  <p>You may browse this site for lawful, personal or business-evaluation purposes. You agree not to misuse it, attempt unauthorised access, or interfere with its operation.</p>
+  <h2>3. Intellectual property</h2>
+  <p>All content on this site, including text, graphics, layout, logos and images, belongs to NEW RM DESIGN SRL or its licensors and is protected by copyright and other laws. All rights reserved. You may not copy, reproduce, distribute or modify any content without our written permission.</p>
+  <h2>4. Information only</h2>
+  <p>Content on this site is general information about our services and is not an offer. Services are provided under a written agreement signed with the client. Project images are illustrative.</p>
+  <h2>5. Limitation of liability</h2>
+  <p>We take care to keep the site accurate and available, but provide it as is. To the extent permitted by law, we are not liable for losses arising from its use or from external sites we link to.</p>
+  <h2>6. Governing law</h2>
+  <p>These terms are governed by Italian law. Courts of Naples have jurisdiction, without prejudice to mandatory consumer protection rules.</p>
+  <h2>7. Changes</h2>
+  <p>We may update these terms at any time. The date at the top shows the latest version.</p>
+</div></div></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#home"><i></i>NEW RM DESIGN</a>
+        <p style="color:#9aa3ad;font-size:14px;margin-top:16px;max-width:300px">Interior design and fit-out for homes, shops and hospitality in Naples.</p>
+      </div>
+      <div><h4>Studio</h4><ul><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="#privacy">Privacy Policy</a></li><li><a href="#cookies">Cookie Policy</a></li><li><a href="#terms">Terms of Use</a></li></ul></div>
+      <div><h4>Contact</h4><address>NEW RM DESIGN SRL<br>Vico Tutti i Santi 3<br>80141 Napoli (NA), Italy<br><a href="mailto:admin@newrmdesign.lol">admin@newrmdesign.lol</a></address><div id="vat" style="margin-top:10px;font-size:13px;color:#9aa3ad"></div></div>
+    </div>
+    <div class="fbot"><span>© 2026 NEW RM DESIGN SRL. All rights reserved.</span><span>All content, images and trademarks on this site are protected by law.</span></div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" hidden role="dialog" aria-label="Cookie notice">
+  <p>This site uses only technical storage and no tracking or advertising cookies. See the <a href="#cookies">Cookie Policy</a> and <a href="#privacy">Privacy Policy</a>.</p>
+  <button class="btn" id="cookieOk" type="button">OK</button>
+</div>
+
+<script>
+/* Fill in once registered: shown in the footer when not empty */
+var COMPANY = { vat: "", rea: "" };
+
+var PAL = [
+  {w1:"#2a2f3a",w2:"#1b2028",fl:"#3a2f28",fl2:"#241c17",sky1:"#f2b880",sky2:"#c4684a",lamp:"#ffd7a0",sofa:"#7a4e3a",acc:"#d6a15a",leaf:"#3f6b4a"},
+  {w1:"#33363b",w2:"#22252a",fl:"#4a4640",fl2:"#2c2a27",sky1:"#9db5c9",sky2:"#546b84",lamp:"#fff0cf",sofa:"#516352",acc:"#c8b27a",leaf:"#58805c"},
+  {w1:"#3a2c2a",w2:"#241a19",fl:"#43362f",fl2:"#2a211d",sky1:"#e9c9a0",sky2:"#a9694f",lamp:"#ffcf91",sofa:"#2f4150",acc:"#e4772e",leaf:"#4e7451"},
+  {w1:"#2b3640",w2:"#1a222a",fl:"#3b3a3a",fl2:"#232323",sky1:"#7fa6b8",sky2:"#2f4a5e",lamp:"#ffe4b5",sofa:"#8a5a44",acc:"#e0b36a",leaf:"#4a7a5a"},
+  {w1:"#3b3530",w2:"#272220",fl:"#4d4037",fl2:"#2f2620",sky1:"#f0c892",sky2:"#b9704e",lamp:"#ffdca8",sofa:"#5b6a5a",acc:"#cf8a4a",leaf:"#3d6a45"},
+  {w1:"#262b35",w2:"#171b22",fl:"#35363b",fl2:"#1f2024",sky1:"#b7a3c9",sky2:"#5a4a78",lamp:"#ffe0b0",sofa:"#9a6a4a",acc:"#e4772e",leaf:"#4f7b57"}
+];
+
+function scene(i,kind,pi,label){
+  var p=PAL[pi%PAL.length], id="s"+i+"k";
+  var o='<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+(label||"Interior concept")+'"><defs>'
+   +'<linearGradient id="'+id+'w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+p.w1+'"/><stop offset="1" stop-color="'+p.w2+'"/></linearGradient>'
+   +'<linearGradient id="'+id+'s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+p.sky2+'"/><stop offset="1" stop-color="'+p.sky1+'"/></linearGradient>'
+   +'<linearGradient id="'+id+'f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+p.fl+'"/><stop offset="1" stop-color="'+p.fl2+'"/></linearGradient>'
+   +'<radialGradient id="'+id+'l"><stop offset="0" stop-color="'+p.lamp+'" stop-opacity=".7"/><stop offset="1" stop-color="'+p.lamp+'" stop-opacity="0"/></radialGradient>'
+   +'<linearGradient id="'+id+'v" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".25"/><stop offset=".4" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></linearGradient></defs>';
+  o+='<rect width="400" height="345" fill="url(#'+id+'w)"/><rect y="345" width="400" height="155" fill="url(#'+id+'f)"/><rect y="340" width="400" height="8" fill="#000" opacity=".25"/>';
+  for(var x=-40;x<460;x+=58)o+='<path d="M'+(x+(i%2?0:20))+' 348 L'+(x*1.9-170)+' 500" stroke="#000" stroke-opacity=".18" stroke-width="1"/>';
+  function plant(x,s){return '<rect x="'+(x-14*s)+'" y="'+(318)+'" width="'+(28*s)+'" height="'+(30*s)+'" rx="3" fill="#1b1612"/><ellipse cx="'+(x-12*s)+'" cy="'+(296)+'" rx="'+(9*s)+'" ry="'+(26*s)+'" transform="rotate(-24 '+(x-12*s)+' 296)" fill="'+p.leaf+'"/><ellipse cx="'+(x+12*s)+'" cy="'+(294)+'" rx="'+(9*s)+'" ry="'+(28*s)+'" transform="rotate(22 '+(x+12*s)+' 294)" fill="'+p.leaf+'" opacity=".9"/><ellipse cx="'+x+'" cy="'+(286)+'" rx="'+(8*s)+'" ry="'+(32*s)+'" fill="'+p.leaf+'"/>';}
+  function sofa(x,w){return '<rect x="'+x+'" y="292" width="'+w+'" height="52" rx="10" fill="'+p.sofa+'"/><rect x="'+(x+10)+'" y="268" width="'+(w-20)+'" height="40" rx="10" fill="'+p.sofa+'" opacity=".92"/><rect x="'+(x+14)+'" y="300" width="'+((w-34)/2)+'" height="30" rx="8" fill="#fff" opacity=".07"/><rect x="'+(x+20+(w-34)/2)+'" y="300" width="'+((w-34)/2)+'" height="30" rx="8" fill="#fff" opacity=".07"/><rect x="'+(x+8)+'" y="340" width="6" height="10" fill="#14100d"/><rect x="'+(x+w-14)+'" y="340" width="6" height="10" fill="#14100d"/>';}
+  function pend(x,len,r){return '<line x1="'+x+'" y1="0" x2="'+x+'" y2="'+len+'" stroke="#0c0c0c" stroke-width="1.5"/><circle cx="'+x+'" cy="'+(len+6)+'" r="'+(r*4)+'" fill="url(#'+id+'l)"/><path d="M'+(x-r)+' '+(len+r)+' a'+r+' '+r+' 0 0 1 '+(2*r)+' 0 Z" fill="'+p.acc+'"/>';}
+  if(kind==0){
+    o+='<path d="M115 345 V185 a85 85 0 0 1 170 0 V345 Z" fill="url(#'+id+'s)"/><path d="M115 345 V185 a85 85 0 0 1 170 0 V345 Z" fill="none" stroke="#0e0e0e" stroke-width="8"/>';
+    o+='<line x1="200" y1="100" x2="200" y2="345" stroke="#0e0e0e" stroke-width="4"/><line x1="115" y1="230" x2="285" y2="230" stroke="#0e0e0e" stroke-width="4"/>';
+    o+='<path d="M115 348 L285 348 L380 500 L20 500 Z" fill="'+p.lamp+'" opacity=".11"/>';
+    o+=sofa(70,200)+plant(330,1.1)+pend(335,110,16)+'<rect x="272" y="320" width="40" height="28" fill="#1b1612"/><circle cx="292" cy="312" r="8" fill="'+p.acc+'"/>';
+    o+='<ellipse cx="170" cy="430" rx="130" ry="26" fill="'+p.acc+'" opacity=".16"/>';
+  } else if(kind==1){
+    [[48,92],[262,92]].forEach(function(w){o+='<rect x="'+w[0]+'" y="'+w[1]+'" width="90" height="250" fill="url(#'+id+'s)"/><rect x="'+w[0]+'" y="'+w[1]+'" width="90" height="250" fill="none" stroke="#0e0e0e" stroke-width="6"/><line x1="'+(w[0]+45)+'" y1="'+w[1]+'" x2="'+(w[0]+45)+'" y2="342" stroke="#0e0e0e" stroke-width="3"/><line x1="'+w[0]+'" y1="'+(w[1]+80)+'" x2="'+(w[0]+90)+'" y2="'+(w[1]+80)+'" stroke="#0e0e0e" stroke-width="3"/>';});
+    o+='<rect x="155" y="120" width="90" height="6" fill="#0e0e0e"/><rect x="155" y="190" width="90" height="6" fill="#0e0e0e"/><rect x="162" y="96" width="14" height="24" fill="'+p.acc+'"/><rect x="182" y="102" width="10" height="18" fill="'+p.sofa+'"/><circle cx="220" cy="108" r="12" fill="'+p.lamp+'" opacity=".85"/><rect x="170" y="166" width="30" height="24" fill="'+p.sofa+'"/><rect x="206" y="170" width="26" height="20" fill="'+p.acc+'" opacity=".8"/>';
+    o+='<path d="M48 348 L138 348 L180 500 L0 500 Z" fill="'+p.lamp+'" opacity=".10"/><path d="M262 348 L352 348 L400 500 L222 500 Z" fill="'+p.lamp+'" opacity=".10"/>';
+    o+='<rect x="140" y="262" width="120" height="80" rx="14" fill="'+p.sofa+'"/><rect x="152" y="236" width="96" height="44" rx="12" fill="'+p.sofa+'" opacity=".9"/><rect x="132" y="282" width="24" height="60" rx="8" fill="'+p.sofa+'"/><rect x="244" y="282" width="24" height="60" rx="8" fill="'+p.sofa+'"/>'+plant(70,1)+pend(200,50,13);
+  } else if(kind==2){
+    o+='<circle cx="200" cy="150" r="82" fill="'+p.acc+'" opacity=".5"/><circle cx="200" cy="150" r="74" fill="url(#'+id+'s)"/><path d="M150 200 Q200 120 250 200" stroke="#fff" stroke-opacity=".18" stroke-width="10" fill="none"/>';
+    o+='<rect x="95" y="290" width="210" height="14" fill="'+p.sofa+'"/><rect x="105" y="304" width="10" height="44" fill="#14100d"/><rect x="285" y="304" width="10" height="44" fill="#14100d"/>';
+    o+='<path d="M130 290 q-14 -40 4 -52 q18 12 4 52Z" fill="'+p.acc+'"/><path d="M262 290 q-10 -26 0 -34 q10 8 0 34Z" fill="'+p.lamp+'" opacity=".8"/><rect x="224" y="268" width="36" height="22" fill="#fff" opacity=".12"/>';
+    o+=pend(60,100,13)+pend(340,150,13)+plant(350,.9)+'<ellipse cx="200" cy="440" rx="120" ry="22" fill="#000" opacity=".25"/>';
+  } else {
+    o+='<rect x="30" y="70" width="64" height="272" fill="'+p.sofa+'"/><rect x="38" y="80" width="48" height="120" fill="#000" opacity=".18"/><rect x="38" y="210" width="48" height="124" fill="#000" opacity=".12"/>';
+    o+='<rect x="140" y="100" width="230" height="130" fill="url(#'+id+'s)" opacity=".9"/><line x1="255" y1="100" x2="255" y2="230" stroke="#0e0e0e" stroke-width="4"/><rect x="136" y="96" width="238" height="138" fill="none" stroke="#0e0e0e" stroke-width="6"/>';
+    o+='<rect x="110" y="288" width="270" height="58" fill="'+p.acc+'" opacity=".9"/><rect x="110" y="282" width="270" height="10" fill="#e8e3da" opacity=".85"/>';
+    [150,215,280,345].forEach(function(x){o+='<rect x="'+(x-3)+'" y="372" width="6" height="52" fill="#14100d"/><ellipse cx="'+x+'" cy="372" rx="17" ry="6" fill="'+p.sofa+'"/>';});
+    o+=pend(170,120,12)+pend(245,150,12)+pend(320,120,12);
+  }
+  o+='<rect width="400" height="500" fill="url(#'+id+'v)"/></svg>';
+  return o;
+}
+
+function heroScene(){
+  var o='<svg viewBox="0 0 1600 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arched interior at dusk"><defs>'
+   +'<linearGradient id="hs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f3b57"/><stop offset=".55" stop-color="#b4694d"/><stop offset="1" stop-color="#f1b57a"/></linearGradient>'
+   +'<linearGradient id="hw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a202a"/><stop offset="1" stop-color="#2a2622"/></linearGradient>'
+   +'<linearGradient id="hf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2f27"/><stop offset="1" stop-color="#15110e"/></linearGradient>'
+   +'<linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd8a3" stop-opacity=".30"/><stop offset="1" stop-color="#ffd8a3" stop-opacity="0"/></linearGradient></defs>';
+  o+='<rect width="1600" height="760" fill="url(#hw)"/><rect y="520" width="1600" height="240" fill="url(#hf)"/>';
+  var xs=[190,590,990,1390];
+  xs.forEach(function(x,k){
+    o+='<path d="M'+(x-130)+' 520 V250 a130 130 0 0 1 260 0 V520 Z" fill="url(#hs)"/>';
+    o+='<g fill="#101722" opacity=".85"><rect x="'+(x-130)+'" y="440" width="48" height="80"/><rect x="'+(x-70)+'" y="400" width="36" height="120"/><rect x="'+(x-24)+'" y="450" width="60" height="70"/><rect x="'+(x+48)+'" y="410" width="40" height="110"/><rect x="'+(x+96)+'" y="460" width="34" height="60"/></g>';
+    o+='<g fill="#ffd9a0">'+[ -60,-52,60,68].map(function(dx){return '<rect x="'+(x+dx)+'" y="'+(446+((dx%3+3)%3)*10)+'" width="4" height="5"/>';}).join("")+'</g>';
+    o+='<path d="M'+(x-130)+' 520 V250 a130 130 0 0 1 260 0 V520" fill="none" stroke="#0a0d12" stroke-width="12"/>';
+    o+='<path d="M'+(x-130)+' 524 L'+(x+130)+' 524 L'+(x+250+k*40)+' 760 L'+(x-250-k*40)+' 760 Z" fill="url(#hl)"/>';
+  });
+  o+='<rect y="516" width="1600" height="8" fill="#000" opacity=".4"/>';
+  o+='<g stroke="#0b0b0b" stroke-width="2"><line x1="0" y1="0" x2="0" y2="0"/></g>';
+  [380,790,1200].forEach(function(x){o+='<line x1="'+x+'" y1="0" x2="'+x+'" y2="120" stroke="#0c0c0c" stroke-width="2"/><path d="M'+(x-26)+' 150 a26 26 0 0 1 52 0 Z" fill="#e4772e" transform="translate(0,-16)"/><ellipse cx="'+x+'" cy="140" rx="70" ry="52" fill="#ffd8a3" opacity=".16"/>';});
+  o+='</svg>';
+  return o;
+}
+function featScene(){
+  return scene(90,1,2,"Interior with tall windows").replace('viewBox="0 0 400 500"','viewBox="0 100 400 340"');
+}
+
+var PROJECTS=[
+  {t:"Casa Sanità",s:"Apartment, historic centre",k:0,p:2,tag:"Residential"},
+  {t:"Atelier Chiaia",s:"Boutique fit-out",k:1,p:1,tag:"Commercial"},
+  {t:"Palazzo Loft",s:"Townhouse renovation",k:2,p:4,tag:"Renovation"},
+  {t:"Bar Vomero",s:"Café and bar interior",k:3,p:0,tag:"Hospitality"},
+  {t:"Studio Posillipo",s:"Sea-view living room",k:0,p:3,tag:"Residential"},
+  {t:"Casa Mergellina",s:"Kitchen and dining",k:3,p:5,tag:"Residential"}
+];
+function renderCards(){
+  document.querySelectorAll("[data-cards]").forEach(function(el){
+    var list=el.dataset.cards==="home"?PROJECTS.slice(0,4):PROJECTS;
+    el.innerHTML=list.map(function(c,i){
+      return '<a class="card" href="#projects"><div class="ph">'+scene(i+1,c.k,c.p,c.t+" concept")+'<span class="tag">'+c.tag+'</span></div><div class="meta"><h3>'+c.t+'</h3><span>'+c.s+' · Concept</span></div></a>';
+    }).join("");
+  });
+}
+
+function init(){
+  document.querySelector("[data-hero]").innerHTML=heroScene();
+  document.querySelector("[data-feature]").innerHTML=featScene();
+  document.querySelectorAll("[data-scene]").forEach(function(el){
+    var a=el.dataset.scene.split(",");el.innerHTML=scene(+a[0],+a[1],+a[2],"Interior concept");
+  });
+  renderCards();
+  var v=[];
+  if(COMPANY.vat)v.push("P.IVA / VAT: "+COMPANY.vat);
+  if(COMPANY.rea)v.push("REA: "+COMPANY.rea);
+  document.getElementById("vat").innerHTML=v.join("<br>");
+}
+
+var PAGES=["home","about","services","projects","contact","privacy","cookies","terms"];
+function route(){
+  var h=(location.hash||"#home").slice(1);
+  if(PAGES.indexOf(h)<0)h="home";
+  document.querySelectorAll("[data-page]").forEach(function(s){s.hidden=s.dataset.page!==h;});
+  document.querySelectorAll("[data-nav]").forEach(function(a){
+    if(a.dataset.nav===h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
+  });
+  document.getElementById("mainNav").classList.remove("open");
+  document.getElementById("menuBtn").setAttribute("aria-expanded","false");
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+document.getElementById("menuBtn").addEventListener("click",function(){
+  var n=document.getElementById("mainNav"),o=n.classList.toggle("open");
+  this.setAttribute("aria-expanded",o?"true":"false");
+});
+
+function copyText(t,btn){
+  var done=function(){if(btn){var o=btn.textContent;btn.textContent="Copied";setTimeout(function(){btn.textContent=o;},1400);}};
+  try{navigator.clipboard.writeText(t).then(done,function(){fallback(t);done();});}catch(e){fallback(t);done();}
+}
+function fallback(t){
+  var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();
+  try{document.execCommand("copy");}catch(e){}
+  document.body.removeChild(ta);
+}
+document.querySelectorAll("[data-copy]").forEach(function(b){b.addEventListener("click",function(){copyText(b.dataset.copy,b);});});
+
+var msgText="";
+document.getElementById("cform").addEventListener("submit",function(e){
+  e.preventDefault();
+  var n=document.getElementById("f-name").value.trim(),m=document.getElementById("f-mail").value.trim(),
+      t=document.getElementById("f-type").value,g=document.getElementById("f-msg").value.trim(),
+      ok=document.getElementById("f-ok").checked,err=document.getElementById("ferr");
+  var bad="";
+  if(!n||!g)bad="Enter your name and a message.";
+  else if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m))bad="Enter a valid email address.";
+  else if(!ok)bad="Please confirm that you have read the Privacy Policy.";
+  if(bad){err.textContent=bad;err.hidden=false;document.getElementById("fres").hidden=true;return;}
+  err.hidden=true;
+  msgText="Name: "+n+"\nEmail: "+m+"\nProject type: "+t+"\n\n"+g;
+  document.getElementById("fpre").textContent=msgText;
+  document.getElementById("fmail").href="mailto:admin@newrmdesign.lol?subject="+encodeURIComponent("Project enquiry from "+n)+"&body="+encodeURIComponent(msgText);
+  document.getElementById("fres").hidden=false;
+});
+document.getElementById("fcopy").addEventListener("click",function(){copyText(msgText,this);});
+
+function cookieInit(){
+  var seen=false;try{seen=localStorage.getItem("rm-cookie")==="1";}catch(e){}
+  document.getElementById("cookie").hidden=seen;
+  document.getElementById("cookieOk").addEventListener("click",function(){
+    try{localStorage.setItem("rm-cookie","1");}catch(e){}
+    document.getElementById("cookie").hidden=true;
+  });
+}
+init();route();cookieInit();
+</script>
+
+</body></html>
